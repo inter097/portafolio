@@ -2,33 +2,23 @@
 
 import { useLanguage } from '@/context/LanguageContext'
 import { t } from '@/lib/translations'
-import { useInView } from '@/hooks/useInView'
-
-const fadeStyle = (inView: boolean, delay = 0) => ({
-  opacity: inView ? 1 : 0,
-  transform: inView ? 'translateY(0)' : 'translateY(20px)',
-  transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
-})
 
 export default function About() {
   const { lang } = useLanguage()
-  const { ref, inView } = useInView()
 
   return (
     <section id="about" className="py-24" style={{ background: 'rgba(21,32,53,0.4)' }}>
       <div className="section-divider" />
-      <div ref={ref} className="max-w-5xl mx-auto px-6 pt-16">
+      <div className="max-w-5xl mx-auto px-6 pt-16">
 
-        <div style={fadeStyle(inView)}>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-            {t.about.title[lang]}
-          </h2>
-          <div className="w-12 h-1 bg-blue-500 rounded mb-10" />
-        </div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+          {t.about.title[lang]}
+        </h2>
+        <div className="w-12 h-1 bg-blue-500 rounded mb-10" />
 
         <div className="grid md:grid-cols-5 gap-10 items-start">
           {/* Text */}
-          <div className="md:col-span-3 space-y-4" style={fadeStyle(inView, 100)}>
+          <div className="md:col-span-3 space-y-4">
             <p className="text-slate-300 leading-relaxed">{t.about.p1[lang]}</p>
             <p className="text-slate-300 leading-relaxed">{t.about.p2[lang]}</p>
             <div className="flex items-center gap-2 text-sm text-slate-400 pt-2">
@@ -45,9 +35,8 @@ export default function About() {
             {t.about.stats.map((stat, i) => (
               <div
                 key={i}
-                style={fadeStyle(inView, 150 + i * 100)}
-                className="rounded-xl border border-blue-500/20 p-5 flex items-center gap-4"
-                style={{ ...fadeStyle(inView, 150 + i * 100), background: 'rgba(26,39,68,0.7)', borderColor: 'rgba(59,130,246,0.2)' }}
+                className="rounded-xl p-5 flex items-center gap-4"
+                style={{ background: 'rgba(26,39,68,0.7)', border: '1px solid rgba(59,130,246,0.2)' }}
               >
                 <span className="text-3xl font-extrabold text-blue-400">{stat.value}</span>
                 <span className="text-sm text-slate-400 leading-snug">{stat.label[lang]}</span>
