@@ -9,7 +9,7 @@ const links = [
   { href: '#skills',     key: 'skills'     },
   { href: '#projects',   key: 'projects'   },
   { href: '#experience', key: 'experience' },
-  { href: '#cv',         key: 'cv'         },
+  { href: '#contact',    key: 'cv'         },
   { href: '#contact',    key: 'contact'    },
 ] as const
 
@@ -40,7 +40,7 @@ export default function Navbar() {
         >
           <span className="text-accent">E</span>liuth
           <span className="text-slate-400 font-normal text-sm ml-1 hidden sm:inline">
-            · Data Science
+            · Data Analytics
           </span>
         </a>
 
@@ -57,8 +57,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right: lang toggle + hamburger */}
+        {/* Right: hire me + lang toggle + hamburger */}
         <div className="flex items-center gap-3">
+          <a
+            href="#contact"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
+            style={{ background: '#3b82f6', boxShadow: '0 2px 12px rgba(59,130,246,0.35)' }}
+          >
+            {lang === 'es' ? 'Contáctame' : 'Hire me'}
+          </a>
           <button
             onClick={toggle}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-accent/40 text-xs font-semibold text-accent hover:bg-accent/10 transition-colors"

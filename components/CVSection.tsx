@@ -25,7 +25,7 @@ export default function CVSection() {
         <p className="text-slate-400 mb-8 leading-relaxed">{t.cvSection.desc[lang]}</p>
 
         <a
-          href="/cv.pdf"
+          href={`/cv-${lang}.pdf`}
           download
           className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-white font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
           style={{ background: '#3b82f6', boxShadow: '0 4px 20px rgba(59,130,246,0.3)' }}

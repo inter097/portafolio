@@ -77,6 +77,21 @@ export default function Contact() {
           ))}
         </div>
 
+        {/* CV Download */}
+        <div className="text-center mt-10">
+          <a
+            href={`/cv-${lang}.pdf`}
+            download
+            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-xl text-white font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
+            style={{ background: '#3b82f6', boxShadow: '0 4px 20px rgba(59,130,246,0.3)' }}
+          >
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            {lang === 'es' ? 'Descargar CV' : 'Download Resume'}
+          </a>
+        </div>
+
       </div>
     </section>
   )
