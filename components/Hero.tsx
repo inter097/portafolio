@@ -1,10 +1,13 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
-import { t } from '@/lib/translations'
+import { useRole } from '@/context/RoleContext'
+import { t, roleContent } from '@/lib/translations'
 
 export default function Hero() {
   const { lang } = useLanguage()
+  const { role } = useRole()
+  const rc = roleContent[role]
 
   return (
     <section
@@ -36,12 +39,12 @@ export default function Hero() {
 
         {/* Title */}
         <p className="text-accent-light text-lg sm:text-xl font-semibold mb-5 tracking-wide">
-          {t.hero.title[lang]}
+          {rc.hero.title[lang]}
         </p>
 
         {/* Bio */}
         <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-          {t.hero.bio[lang]}
+          {rc.hero.bio[lang]}
         </p>
 
         {/* CTAs */}
@@ -56,7 +59,7 @@ export default function Hero() {
             {t.hero.cta1[lang]}
           </a>
           <a
-            href={`/cv-${lang}.pdf`}
+            href={rc.cvFile[lang]}
             download
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg border border-accent/40 hover:border-accent text-slate-200 hover:text-white font-semibold text-sm transition-all duration-200 hover:bg-accent/10 hover:-translate-y-0.5"
           >

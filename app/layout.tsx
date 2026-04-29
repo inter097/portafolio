@@ -4,9 +4,9 @@ import { LanguageProvider } from '@/context/LanguageContext'
 import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = {
-  title: 'Jose Eliuth Torres Ortiz — Data Analyst & Data Engineer',
+  title: 'Jose Eliuth Torres Ortiz — Data Engineer',
   description:
-    'Portfolio of Jose Eliuth Torres Ortiz — Data Analyst & Data Engineer. Python, SQL, ETL pipelines, Power BI, PostgreSQL, Machine Learning. Open to remote positions.',
+    'Portfolio of Jose Eliuth Torres Ortiz — Data Engineer & Data Scientist. Airflow, dbt, PostgreSQL, Docker, Python, ML. Open to remote positions.',
   keywords: [
     'Data Analyst', 'Data Engineer', 'Python', 'SQL', 'ETL',
     'Machine Learning', 'Power BI', 'PostgreSQL', 'Streamlit',

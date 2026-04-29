@@ -6,10 +6,13 @@ import Projects   from '@/components/Projects'
 import Experience from '@/components/Experience'
 import Contact    from '@/components/Contact'
 import Footer     from '@/components/Footer'
+import { RoleProvider } from '@/context/RoleContext'
+import type { Role } from '@/lib/translations'
 
-export default function Page() {
+export default function Page({ searchParams }: { searchParams: { v?: string } }) {
+  const role: Role = searchParams?.v === 'ds' ? 'ds' : 'de'
   return (
-    <>
+    <RoleProvider initial={role}>
       <Navbar />
       <main>
         <Hero />
@@ -20,6 +23,6 @@ export default function Page() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </RoleProvider>
   )
 }

@@ -1,4 +1,5 @@
 export type Lang = 'es' | 'en'
+export type Role = 'de' | 'ds'
 
 export const t = {
   nav: {
@@ -224,3 +225,35 @@ export const t = {
     },
   },
 } as const
+
+export const roleContent: Record<Role, {
+  hero: { title: { es: string; en: string }; bio: { es: string; en: string } }
+  cvFile: { es: string; en: string }
+  cvBtn: { es: string; en: string }
+  projectOrder: string[]
+}> = {
+  de: {
+    hero: {
+      title: { es: 'Data Engineer', en: 'Data Engineer' },
+      bio: {
+        es: 'Ingeniero en Sistemas con Maestría en Ciencia e Ingeniería de Datos (UAT). Diseño y opero pipelines de datos end-to-end con Airflow, dbt y PostgreSQL desplegados en producción. Especializado en automatización, calidad de datos y arquitectura de infraestructura con Docker y Cloudflare.',
+        en: "Systems Engineer with a Master's in Data Science & Engineering (UAT). I design and operate end-to-end data pipelines with Airflow, dbt, and PostgreSQL in production. Specialized in automation, data quality, and infrastructure with Docker and Cloudflare.",
+      },
+    },
+    cvFile: { es: '/cv-es.pdf', en: '/cv-en.pdf' },
+    cvBtn: { es: 'Descargar CV — Data Engineer', en: 'Download Resume — Data Engineer' },
+    projectOrder: ['vps', 'spotify', 'heart', 'ontology'],
+  },
+  ds: {
+    hero: {
+      title: { es: 'Data Scientist', en: 'Data Scientist' },
+      bio: {
+        es: 'Ingeniero en Sistemas con Maestría en Ciencia e Ingeniería de Datos (UAT). Desarrollo modelos de ML, sistemas de inferencia semántica y aplicaciones de predicción desplegadas en producción. Experiencia en clasificación, NLP, Web Semántica y análisis de datos clínicos.',
+        en: "Systems Engineer with a Master's in Data Science & Engineering (UAT). I build ML models, semantic inference systems, and prediction applications deployed in production. Experienced in classification, NLP, Semantic Web, and clinical data analysis.",
+      },
+    },
+    cvFile: { es: '/cv-es.pdf', en: '/cv-en.pdf' },
+    cvBtn: { es: 'Descargar CV — Data Scientist', en: 'Download Resume — Data Scientist' },
+    projectOrder: ['heart', 'ontology', 'spotify', 'vps'],
+  },
+}

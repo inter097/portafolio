@@ -1,10 +1,13 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
-import { t } from '@/lib/translations'
+import { useRole } from '@/context/RoleContext'
+import { t, roleContent } from '@/lib/translations'
 
 export default function CVSection() {
   const { lang } = useLanguage()
+  const { role } = useRole()
+  const rc = roleContent[role]
 
   return (
     <section id="cv" className="py-24" style={{ background: 'rgba(21,32,53,0.4)' }}>
@@ -25,7 +28,7 @@ export default function CVSection() {
         <p className="text-slate-400 mb-8 leading-relaxed">{t.cvSection.desc[lang]}</p>
 
         <a
-          href={`/cv-${lang}.pdf`}
+          href={rc.cvFile[lang]}
           download
           className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-white font-semibold text-sm transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
           style={{ background: '#3b82f6', boxShadow: '0 4px 20px rgba(59,130,246,0.3)' }}
@@ -33,7 +36,7 @@ export default function CVSection() {
           <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
-          {t.cvSection.btn[lang]}
+          {rc.cvBtn[lang]}
         </a>
 
       </div>
