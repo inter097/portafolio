@@ -1,10 +1,18 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
-import { t } from '@/lib/translations'
+import { useRole } from '@/context/RoleContext'
+import { t, roleContent } from '@/lib/translations'
 
 export default function Skills() {
   const { lang } = useLanguage()
+  const { role } = useRole()
+  const order = roleContent[role].skillGroupOrder
+  const groups = [...t.skills.groups].sort((a, b) => {
+    const ai = order.indexOf((a as any).id ?? '')
+    const bi = order.indexOf((b as any).id ?? '')
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi)
+  })
 
   return (
     <section id="skills" className="py-24" style={{ background: '#0d1220' }}>
@@ -16,7 +24,7 @@ export default function Skills() {
         <div className="w-12 h-1 bg-blue-500 rounded mb-10" />
 
         <div className="flex flex-col gap-8">
-          {t.skills.groups.map((group) => (
+          {groups.map((group) => (
             <div key={group.label.en}>
               <h3 className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-4">
                 {group.label[lang]}

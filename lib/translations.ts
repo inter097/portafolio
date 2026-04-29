@@ -45,6 +45,7 @@ export const t = {
     title: { es: 'Habilidades Técnicas', en: 'Technical Skills' },
     groups: [
       {
+        id: 'lang',
         label: { es: 'Lenguajes', en: 'Languages' },
         items: [
           { name: 'Python',  color: '#3776AB', bg: 'rgba(55,118,171,0.18)',  letter: 'Py'  },
@@ -53,6 +54,7 @@ export const t = {
         ],
       },
       {
+        id: 'data',
         label: { es: 'Datos & Bases de Datos', en: 'Data & Databases' },
         items: [
           { name: 'PostgreSQL',   color: '#4169E1', bg: 'rgba(65,105,225,0.18)',  letter: 'PG'  },
@@ -62,6 +64,7 @@ export const t = {
         ],
       },
       {
+        id: 'viz',
         label: { es: 'Visualización', en: 'Visualization' },
         items: [
           { name: 'Power BI',  color: '#F2C811', bg: 'rgba(242,200,17,0.15)', letter: 'BI' },
@@ -69,6 +72,7 @@ export const t = {
         ],
       },
       {
+        id: 'ml',
         label: { es: 'ML & NLP', en: 'ML & NLP' },
         items: [
           { name: 'Scikit-Learn',     color: '#F7931E', bg: 'rgba(247,147,30,0.15)',  letter: 'SK' },
@@ -80,16 +84,29 @@ export const t = {
         ],
       },
       {
+        id: 'de',
+        label: { es: 'Data Engineering', en: 'Data Engineering' },
+        items: [
+          { name: 'Apache Airflow', color: '#017CEE', bg: 'rgba(1,124,238,0.15)',   letter: 'AF' },
+          { name: 'dbt',            color: '#FF694A', bg: 'rgba(255,105,74,0.15)',  letter: 'dbt' },
+          { name: 'Docker',         color: '#2496ED', bg: 'rgba(36,150,237,0.15)',  letter: 'Dk' },
+          { name: 'Great Expectations', color: '#10B981', bg: 'rgba(16,185,129,0.15)', letter: 'GX' },
+          { name: 'Metabase',       color: '#509EE3', bg: 'rgba(80,158,227,0.15)', letter: 'MB' },
+          { name: 'Linux',          color: '#FCC624', bg: 'rgba(252,198,36,0.15)', letter: 'Lx' },
+        ],
+      },
+      {
+        id: 'web',
         label: { es: 'Web & Apps', en: 'Web & Apps' },
         items: [
           { name: 'Flask',       color: '#94a3b8', bg: 'rgba(148,163,184,0.12)', letter: 'Fl' },
-          { name: 'Docker',      color: '#2496ED', bg: 'rgba(36,150,237,0.15)',  letter: 'Dk' },
           { name: 'Firebase',    color: '#FFCA28', bg: 'rgba(255,202,40,0.15)',  letter: 'Fb' },
           { name: 'AppSheet',    color: '#1A73E8', bg: 'rgba(26,115,232,0.15)',  letter: 'AS' },
           { name: 'Web Scraping',color: '#a78bfa', bg: 'rgba(167,139,250,0.15)', letter: 'WS' },
         ],
       },
       {
+        id: 'tools',
         label: { es: 'Herramientas', en: 'Tools' },
         items: [
           { name: 'Git',            color: '#F05032', bg: 'rgba(240,80,50,0.15)',   letter: 'Git' },
@@ -106,6 +123,18 @@ export const t = {
     title:      { es: 'Proyectos',       en: 'Projects'        },
     viewGithub: { es: 'Ver en GitHub',   en: 'View on GitHub'  },
     items: [
+      {
+        id: 'vps',
+        name: 'VPS Data Engineering Lab',
+        badge: { es: 'Producción', en: 'Production' },
+        desc: {
+          es: 'Pipeline de datos end-to-end en producción: Airflow orquesta ingesta, Great Expectations valida calidad, dbt transforma, Metabase visualiza. Infraestructura completa con Docker, Nginx, Cloudflare Tunnel y monitoreo automático.',
+          en: 'End-to-end data pipeline in production: Airflow orchestrates ingestion, Great Expectations validates quality, dbt transforms, Metabase visualizes. Full infrastructure with Docker, Nginx, Cloudflare Tunnel, and automated monitoring.',
+        },
+        tags: ['Airflow', 'dbt', 'PostgreSQL', 'Docker', 'Cloudflare'],
+        github: '',
+        demo: 'https://home.eliuth.dev',
+      },
       {
         id: 'heart',
         name: 'Predict-Heart',
@@ -231,6 +260,7 @@ export const roleContent: Record<Role, {
   cvFile: { es: string; en: string }
   cvBtn: { es: string; en: string }
   projectOrder: string[]
+  skillGroupOrder: string[]
 }> = {
   de: {
     hero: {
@@ -243,6 +273,7 @@ export const roleContent: Record<Role, {
     cvFile: { es: '/cv-es.pdf', en: '/cv-en.pdf' },
     cvBtn: { es: 'Descargar CV — Data Engineer', en: 'Download Resume — Data Engineer' },
     projectOrder: ['vps', 'spotify', 'heart', 'ontology'],
+    skillGroupOrder: ['de', 'data', 'lang', 'viz', 'ml', 'web', 'tools'],
   },
   ds: {
     hero: {
@@ -254,6 +285,7 @@ export const roleContent: Record<Role, {
     },
     cvFile: { es: '/cv-es.pdf', en: '/cv-en.pdf' },
     cvBtn: { es: 'Descargar CV — Data Scientist', en: 'Download Resume — Data Scientist' },
-    projectOrder: ['heart', 'ontology', 'spotify', 'vps'],
+    projectOrder: ['heart', 'ontology', 'vps', 'spotify'],
+    skillGroupOrder: ['ml', 'lang', 'data', 'viz', 'web', 'de', 'tools'],
   },
 }

@@ -1,7 +1,8 @@
 'use client'
 
 import { useLanguage } from '@/context/LanguageContext'
-import { t } from '@/lib/translations'
+import { useRole } from '@/context/RoleContext'
+import { t, roleContent } from '@/lib/translations'
 
 const badgeColors: Record<string, { bg: string; color: string }> = {
   Producción:            { bg: 'rgba(16,185,129,0.15)', color: '#34d399' },
@@ -14,6 +15,13 @@ const badgeColors: Record<string, { bg: string; color: string }> = {
 
 export default function Projects() {
   const { lang } = useLanguage()
+  const { role } = useRole()
+  const order = roleContent[role].projectOrder
+  const items = [...t.projects.items].sort((a, b) => {
+    const ai = order.indexOf(a.id)
+    const bi = order.indexOf(b.id)
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi)
+  })
 
   return (
     <section id="projects" className="py-24" style={{ background: 'rgba(21,32,53,0.4)' }}>
@@ -25,7 +33,7 @@ export default function Projects() {
         <div className="w-12 h-1 bg-blue-500 rounded mb-10" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.projects.items.map((project) => {
+          {items.map((project) => {
             const badge = project.badge[lang]
             const badgeStyle = badgeColors[badge] ?? { bg: 'rgba(148,163,184,0.15)', color: '#94a3b8' }
             return (
