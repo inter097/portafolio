@@ -9,8 +9,9 @@ import Footer     from '@/components/Footer'
 import { RoleProvider } from '@/context/RoleContext'
 import type { Role } from '@/lib/translations'
 
-export default function Page({ searchParams }: { searchParams: { v?: string } }) {
-  const role: Role = searchParams?.v === 'ds' ? 'ds' : 'de'
+export default async function Page({ searchParams }: { searchParams: Promise<{ v?: string }> }) {
+  const params = await searchParams
+  const role: Role = params?.v === 'ds' ? 'ds' : 'de'
   return (
     <RoleProvider initial={role}>
       <Navbar />
